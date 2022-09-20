@@ -8,10 +8,9 @@ class Inventario {
     }
 
     eliminar(codigo){
-        let i = 0;
         let x = 0;
-        while(x==0){
-            if(codigo==this.inventario[i].codigo){
+        for(let i = 0; i < this.inventario.length;i++){
+            if(codigo===this.inventario[i].codigo){
                 for( let j=i;j<this.inventario.length-1;j++){
                     this.inventario[j]=this.inventario[j+1];
                 }
@@ -22,6 +21,14 @@ class Inventario {
                     x=1;
                 }
                i++;
+        }
+    }
+
+    modificar(codigo,codigoN){
+        for(let i = 0; i < this.inventario.length;i++){
+            if(codigo === this.inventario[i]){
+                this.inventario[i] = codigoN;
+            }
         }
     }
 
@@ -83,8 +90,8 @@ function addProducto(){
 }
 
 function eliminarX(){
-    let codigo = document.getElementById("eliminar").value;
-    lista.eliminar(codigo);
+    let cod = document.getElementById("eliminar").value;
+    lista.eliminar(cod);
 
 
 }
@@ -127,12 +134,6 @@ function listar(){
     td = document.createElement("td");
     td.innerText = y.nombre;
     f.appendChild(td);
-    td = document.createElement("td");
-    td.innerText = y.cantidad;
-    f.appendChild(td);
-    td = document.createElement("td");
-    td.innerText = y.costo;
-    f.appendChild(td);
     cTab.appendChild(f);
 });
 
@@ -152,11 +153,6 @@ function listInverted(){
     td.innerText = y.nombre;
     f.appendChild(td);
     td = document.createElement("td");
-    td.innerText = y.cantidad;
-    f.appendChild(td);
-    td = document.createElement("td");
-    td.innerText = y.costo;
-    f.appendChild(td);
     cTab.appendChild(f);
 });
 
