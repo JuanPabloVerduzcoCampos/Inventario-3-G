@@ -142,7 +142,7 @@ tProd.appendChild(cTab);
 
 function listInverted(){
     let x = lista.invInverso();
-    let tProd = document.getElementById("productos2");
+    let tProd = document.getElementById("prod");
     let cTab = document.createElement("tbody"); 
     x.forEach(y => {
     let f = document.createElement("tr");
